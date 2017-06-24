@@ -1,0 +1,3 @@
+COMPONENT=sendAckAppC
+include $(MAKERULES)
+

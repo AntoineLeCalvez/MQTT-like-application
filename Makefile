@@ -1,0 +1,3 @@
+COMPONENT=mqttAppC
+include $(MAKERULES)
+
