@@ -1,0 +1,4747 @@
+user@instant-contiki:~/Desktop/IOT-ProjectFINAL$ make micaz sim
+mkdir -p simbuild/micaz
+  placing object files in simbuild/micaz
+  writing XML schema to app.xml
+  compiling mqttAppC to object file sim.o
+ncc -c -shared -fPIC -o simbuild/micaz/sim.o -g -O0 -tossim -fnesc-nido-tosnodes=1000 -fnesc-simulate -fnesc-nido-motenumber=sim_node\(\) -fnesc-gcc=gcc -Wall -Wshadow -Wnesc-all -target=micaz -fnesc-cfile=simbuild/micaz/app.c -board=micasb -DDEFINED_TOS_AM_GROUP=0x22 --param max-inline-insns-single=100000 -DIDENT_APPNAME=\"mqttAppC\" -DIDENT_USERNAME=\"user\" -DIDENT_HOSTNAME=\"instant-contiki\" -DIDENT_USERHASH=0x22a1ff22L -DIDENT_TIMESTAMP=0x594aa073L -DIDENT_UIDHASH=0xc38f56fdL -Wno-nesc-data-race mqttAppC.nc   -fnesc-dump=components -fnesc-dump=variables -fnesc-dump=constants -fnesc-dump=typedefs -fnesc-dump=interfacedefs -fnesc-dump=tags -fnesc-dumpfile=app.xml
+/home/user/tinyos-main/tos/lib/tossim/sim_noise.c: In function ‘sim_noise_gen’:
+/home/user/tinyos-main/tos/lib/tossim/sim_noise.c:291:7: warning: variable ‘noiseIndex’ set but not used [-Wunused-but-set-variable]
+  compiling Python support and C libraries into pytossim.o, tossim.o, and c-support.o
+g++ -c  -shared -fPIC -o simbuild/micaz/pytossim.o -g -O0 -DIDENT_APPNAME=\"mqttAppC\" -DIDENT_USERNAME=\"user\" -DIDENT_HOSTNAME=\"instant-contiki\" -DIDENT_USERHASH=0x22a1ff22L -DIDENT_TIMESTAMP=0x594aa073L -DIDENT_UIDHASH=0xc38f56fdL /home/user/tinyos-main/tos/lib/tossim/tossim_wrap.cxx -I/usr/include/python2.7 -I/home/user/tinyos-main/tos/lib/tossim -DHAVE_CONFIG_H 
+/home/user/tinyos-main/tos/lib/tossim/tossim_wrap.cxx: In function ‘void SWIG_Python_AddErrorMsg(const char*)’:
+/home/user/tinyos-main/tos/lib/tossim/tossim_wrap.cxx:880:42: warning: format not a string literal and no format arguments [-Wformat-security]
+g++ -c  -shared -fPIC -o simbuild/micaz/tossim.o -g -O0 -DIDENT_APPNAME=\"mqttAppC\" -DIDENT_USERNAME=\"user\" -DIDENT_HOSTNAME=\"instant-contiki\" -DIDENT_USERHASH=0x22a1ff22L -DIDENT_TIMESTAMP=0x594aa073L -DIDENT_UIDHASH=0xc38f56fdL /home/user/tinyos-main/tos/lib/tossim/tossim.c -I/usr/include/python2.7 -I/home/user/tinyos-main/tos/lib/tossim
+g++ -c  -shared -fPIC -o simbuild/micaz/c-support.o -g -O0 -DIDENT_APPNAME=\"mqttAppC\" -DIDENT_USERNAME=\"user\" -DIDENT_HOSTNAME=\"instant-contiki\" -DIDENT_USERHASH=0x22a1ff22L -DIDENT_TIMESTAMP=0x594aa073L -DIDENT_UIDHASH=0xc38f56fdL /home/user/tinyos-main/tos/lib/tossim/hashtable.c -I/usr/include/python2.7 -I/home/user/tinyos-main/tos/lib/tossim
+  linking into shared object ./_TOSSIMmodule.so
+g++ -shared -fPIC  simbuild/micaz/pytossim.o simbuild/micaz/sim.o simbuild/micaz/tossim.o simbuild/micaz/c-support.o -lstdc++  -o _TOSSIMmodule.so
+  copying Python script interface TOSSIM.py from lib/tossim to local directory
+ 
+*** Successfully built micaz TOSSIM library.  
+user@instant-contiki:~/Desktop/IOT-ProjectFINAL$ python RunSimulationScript.py 
+********************************************
+*                                          *
+*             TOSSIM Script                *
+*                                          *
+********************************************
+Initializing mac....
+Initializing radio channels....
+    using topology file: topology.txt
+    using noise file: meyer-heavy.txt
+Initializing simulator....
+Activate debug message on channel init
+Activate debug message on channel boot
+Activate debug message on channel radio
+Activate debug message on channel radio_send
+Activate debug message on channel radio_ack
+Activate debug message on channel radio_rec
+Activate debug message on channel radio_pack
+Activate debug message on channel role
+Creating node 1...
+>>>Will boot at time 1 [sec]
+Creating node 2...
+>>>Will boot at time 3 [sec]
+Creating node 3...
+>>>Will boot at time 5 [sec]
+Creating node 4...
+>>>Will boot at time 7 [sec]
+Creating node 5...
+>>>Will boot at time 9 [sec]
+Creating node 6...
+>>>Will boot at time 11 [sec]
+Creating node 7...
+>>>Will boot at time 13 [sec]
+Creating node 8...
+>>>Will boot at time 15 [sec]
+Creating node 9...
+>>>Will boot at time 17 [sec]
+Creating radio channels...
+>>>Setting radio channel from node  1  to node  2  with gain  -60.0  dBm
+>>>Setting radio channel from node  2  to node  1  with gain  -60.0  dBm
+>>>Setting radio channel from node  1  to node  3  with gain  -60.0  dBm
+>>>Setting radio channel from node  3  to node  1  with gain  -60.0  dBm
+>>>Setting radio channel from node  1  to node  4  with gain  -60.0  dBm
+>>>Setting radio channel from node  4  to node  1  with gain  -60.0  dBm
+>>>Setting radio channel from node  1  to node  5  with gain  -60.0  dBm
+>>>Setting radio channel from node  5  to node  1  with gain  -60.0  dBm
+>>>Setting radio channel from node  1  to node  6  with gain  -60.0  dBm
+>>>Setting radio channel from node  6  to node  1  with gain  -60.0  dBm
+>>>Setting radio channel from node  1  to node  7  with gain  -60.0  dBm
+>>>Setting radio channel from node  7  to node  1  with gain  -60.0  dBm
+>>>Setting radio channel from node  1  to node  8  with gain  -60.0  dBm
+>>>Setting radio channel from node  8  to node  1  with gain  -60.0  dBm
+>>>Setting radio channel from node  1  to node  9  with gain  -60.0  dBm
+>>>Setting radio channel from node  9  to node  1  with gain  -60.0  dBm
+Initializing Closest Pattern Matching (CPM)...
+Reading noise model data file: meyer-heavy.txt
+Loading:##Done!
+>>>Creating noise model for node: 1
+>>>Creating noise model for node: 2
+>>>Creating noise model for node: 3
+>>>Creating noise model for node: 4
+>>>Creating noise model for node: 5
+>>>Creating noise model for node: 6
+>>>Creating noise model for node: 7
+>>>Creating noise model for node: 8
+>>>Creating noise model for node: 9
+Start simulation with TOSSIM! 
+
+
+
+DEBUG (1): Application booted.
+DEBUG (1): Radio on!
+DEBUG (1): I'm node 1: I'm the MQTT Broker
+DEBUG (2): Application booted.
+DEBUG (2): Radio on!
+DEBUG (2): I'm node 2: I'm a MQTT client node
+DEBUG (2): Try to send a connect request to node 1 (MQTT Broker) at time 0:0:3.976562520 
+DEBUG (2): Packet passed to lower layer successfully!
+DEBUG (2): >>>Pack
+ 	 Payload length 1 
+	 Source: 2 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 1 
+DEBUG (1): Message received at time 0:0:3.980453488 
+DEBUG (1): >>>Pack 
+ 	 Payload length 1 
+	 Source: 2 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 1 
+Here are the connected nodes (seen from the MQTT broker)  : [1, 0, 0, 0, 0, 0, 0, 0] 
+Number of connected nodes: 1 
+DEBUG (2): Packet sent...and CONNACK received at time 0:0:3.980621334 
+DEBUG (2): Try to send a subscribe request to node 1 (MQTT Broker) at time 0:0:4.957031270 
+DEBUG (2): Packet passed to lower layer successfully!
+DEBUG (2): >>>Pack
+ 	 Payload length 7 
+	 Source: 2 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 2 
+		 Topic: [1 1 1] 
+		 QOS: [1 1 1] 
+DEBUG (1): Message received at time 0:0:4.967483479 
+DEBUG (1): >>>Pack 
+ 	 Payload length 7 
+	 Source: 2 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 2 
+		 Topics: [1 1 1]
+		 QOS: [1 1 1] 
+DEBUG (2): Packet sent...and SUBACK received at time 0:0:4.967651325 
+DEBUG (3): Application booted.
+DEBUG (3): Radio on!
+DEBUG (3): I'm node 3: I'm a MQTT client node
+DEBUG (3): Try to send a connect request to node 1 (MQTT Broker) at time 0:0:5.976562520 
+DEBUG (3): Packet passed to lower layer successfully!
+DEBUG (3): >>>Pack
+ 	 Payload length 1 
+	 Source: 3 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 1 
+DEBUG (1): Message received at time 0:0:5.981445304 
+DEBUG (1): >>>Pack 
+ 	 Payload length 1 
+	 Source: 3 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 1 
+Here are the connected nodes (seen from the MQTT broker)  : [1, 1, 0, 0, 0, 0, 0, 0] 
+Number of connected nodes: 2 
+DEBUG (3): Packet sent...and CONNACK received at time 0:0:5.981613149 
+DEBUG (3): Try to send a subscribe request to node 1 (MQTT Broker) at time 0:0:6.958007832 
+DEBUG (3): Packet passed to lower layer successfully!
+DEBUG (3): >>>Pack
+ 	 Payload length 7 
+	 Source: 3 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 2 
+		 Topic: [1 1 0] 
+		 QOS: [1 1 1] 
+DEBUG (1): Message received at time 0:0:6.963287342 
+DEBUG (1): >>>Pack 
+ 	 Payload length 7 
+	 Source: 3 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 2 
+		 Topics: [1 1 0]
+		 QOS: [1 1 1] 
+DEBUG (3): Packet sent...and SUBACK received at time 0:0:6.963455188 
+DEBUG (4): Application booted.
+DEBUG (4): Radio on!
+DEBUG (4): I'm node 4: I'm a MQTT client node
+DEBUG (4): Try to send a connect request to node 1 (MQTT Broker) at time 0:0:7.976562520 
+DEBUG (4): Packet passed to lower layer successfully!
+DEBUG (4): >>>Pack
+ 	 Payload length 1 
+	 Source: 4 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 1 
+DEBUG (1): Message received at time 0:0:7.985000581 
+DEBUG (1): >>>Pack 
+ 	 Payload length 1 
+	 Source: 4 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 1 
+Here are the connected nodes (seen from the MQTT broker)  : [1, 1, 1, 0, 0, 0, 0, 0] 
+Number of connected nodes: 3 
+DEBUG (4): Packet sent...and CONNACK received at time 0:0:7.985168426 
+DEBUG (4): Try to send a subscribe request to node 1 (MQTT Broker) at time 0:0:8.960937520 
+DEBUG (4): Packet passed to lower layer successfully!
+DEBUG (4): >>>Pack
+ 	 Payload length 7 
+	 Source: 4 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 2 
+		 Topic: [1 1 1] 
+		 QOS: [1 1 1] 
+DEBUG (4): Packet sent...but SUBACK was not received at time 0:0:8.965698234 
+DEBUG (5): Application booted.
+DEBUG (5): Radio on!
+DEBUG (5): I'm node 5: I'm a MQTT client node
+DEBUG (4): Try to send a subscribe request to node 1 (MQTT Broker) at time 0:0:9.941406270 
+DEBUG (4): Packet passed to lower layer successfully!
+DEBUG (4): >>>Pack
+ 	 Payload length 7 
+	 Source: 4 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 2 
+		 Topic: [1 1 1] 
+		 QOS: [1 1 1] 
+DEBUG (1): Message received at time 0:0:9.950653042 
+DEBUG (1): >>>Pack 
+ 	 Payload length 7 
+	 Source: 4 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 2 
+		 Topics: [1 1 1]
+		 QOS: [1 1 1] 
+DEBUG (4): Packet sent...and SUBACK received at time 0:0:9.950820887 
+DEBUG (5): Try to send a connect request to node 1 (MQTT Broker) at time 0:0:9.976562520 
+DEBUG (5): Packet passed to lower layer successfully!
+DEBUG (5): >>>Pack
+ 	 Payload length 1 
+	 Source: 5 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 1 
+DEBUG (1): Message received at time 0:0:9.982681258 
+DEBUG (1): >>>Pack 
+ 	 Payload length 1 
+	 Source: 5 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 1 
+Here are the connected nodes (seen from the MQTT broker)  : [1, 1, 1, 1, 0, 0, 0, 0] 
+Number of connected nodes: 4 
+DEBUG (5): Packet sent...and CONNACK received at time 0:0:9.982849104 
+DEBUG (5): Try to send a subscribe request to node 1 (MQTT Broker) at time 0:0:10.958984395 
+DEBUG (5): Packet passed to lower layer successfully!
+DEBUG (5): >>>Pack
+ 	 Payload length 7 
+	 Source: 5 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 2 
+		 Topic: [1 1 0] 
+		 QOS: [0 0 0] 
+DEBUG (1): Message received at time 0:0:10.968032804 
+DEBUG (1): >>>Pack 
+ 	 Payload length 7 
+	 Source: 5 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 2 
+		 Topics: [1 1 0]
+		 QOS: [0 0 0] 
+DEBUG (5): Packet sent...and SUBACK received at time 0:0:10.968200649 
+DEBUG (6): Application booted.
+DEBUG (6): Radio on!
+DEBUG (6): I'm node 6: I'm a MQTT client node
+DEBUG (6): Try to send a connect request to node 1 (MQTT Broker) at time 0:0:11.976562520 
+DEBUG (6): Packet passed to lower layer successfully!
+DEBUG (6): >>>Pack
+ 	 Payload length 1 
+	 Source: 6 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 1 
+DEBUG (1): Message received at time 0:0:11.986221277 
+DEBUG (1): >>>Pack 
+ 	 Payload length 1 
+	 Source: 6 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 1 
+Here are the connected nodes (seen from the MQTT broker)  : [1, 1, 1, 1, 1, 0, 0, 0] 
+Number of connected nodes: 5 
+DEBUG (6): Packet sent...and CONNACK received at time 0:0:11.986389122 
+DEBUG (6): Try to send a subscribe request to node 1 (MQTT Broker) at time 0:0:12.962890645 
+DEBUG (6): Packet passed to lower layer successfully!
+DEBUG (6): >>>Pack
+ 	 Payload length 7 
+	 Source: 6 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 2 
+		 Topic: [1 1 1] 
+		 QOS: [0 0 0] 
+DEBUG (1): Message received at time 0:0:12.968429553 
+DEBUG (1): >>>Pack 
+ 	 Payload length 7 
+	 Source: 6 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 2 
+		 Topics: [1 1 1]
+		 QOS: [0 0 0] 
+DEBUG (6): Packet sent...and SUBACK received at time 0:0:12.968597398 
+DEBUG (7): Application booted.
+DEBUG (7): Radio on!
+DEBUG (7): I'm node 7: I'm a MQTT client node
+DEBUG (7): Try to send a connect request to node 1 (MQTT Broker) at time 0:0:13.976562520 
+DEBUG (7): Packet passed to lower layer successfully!
+DEBUG (7): >>>Pack
+ 	 Payload length 1 
+	 Source: 7 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 1 
+DEBUG (1): Message received at time 0:0:13.982055652 
+DEBUG (1): >>>Pack 
+ 	 Payload length 1 
+	 Source: 7 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 1 
+Here are the connected nodes (seen from the MQTT broker)  : [1, 1, 1, 1, 1, 1, 0, 0] 
+Number of connected nodes: 6 
+DEBUG (7): Packet sent...and CONNACK received at time 0:0:13.982223497 
+DEBUG (7): Try to send a subscribe request to node 1 (MQTT Broker) at time 0:0:14.958007832 
+DEBUG (7): Packet passed to lower layer successfully!
+DEBUG (7): >>>Pack
+ 	 Payload length 7 
+	 Source: 7 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 2 
+		 Topic: [1 1 0] 
+		 QOS: [0 0 0] 
+DEBUG (1): Message received at time 0:0:14.960281378 
+DEBUG (1): >>>Pack 
+ 	 Payload length 7 
+	 Source: 7 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 2 
+		 Topics: [1 1 0]
+		 QOS: [0 0 0] 
+DEBUG (7): Packet sent...and SUBACK received at time 0:0:14.960449224 
+DEBUG (8): Application booted.
+DEBUG (8): Radio on!
+DEBUG (8): I'm node 8: I'm a MQTT client node
+DEBUG (8): Try to send a connect request to node 1 (MQTT Broker) at time 0:0:15.976562520 
+DEBUG (8): Packet passed to lower layer successfully!
+DEBUG (8): >>>Pack
+ 	 Payload length 1 
+	 Source: 8 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 1 
+DEBUG (1): Message received at time 0:0:15.984909028 
+DEBUG (1): >>>Pack 
+ 	 Payload length 1 
+	 Source: 8 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 1 
+Here are the connected nodes (seen from the MQTT broker)  : [1, 1, 1, 1, 1, 1, 1, 0] 
+Number of connected nodes: 7 
+DEBUG (8): Packet sent...and CONNACK received at time 0:0:15.985076874 
+DEBUG (8): Try to send a subscribe request to node 1 (MQTT Broker) at time 0:0:16.960937520 
+DEBUG (8): Packet passed to lower layer successfully!
+DEBUG (8): >>>Pack
+ 	 Payload length 7 
+	 Source: 8 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 2 
+		 Topic: [1 1 1] 
+		 QOS: [0 0 0] 
+DEBUG (1): Message received at time 0:0:16.966461169 
+DEBUG (1): >>>Pack 
+ 	 Payload length 7 
+	 Source: 8 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 2 
+		 Topics: [1 1 1]
+		 QOS: [0 0 0] 
+DEBUG (8): Packet sent...and SUBACK received at time 0:0:16.966629015 
+DEBUG (9): Application booted.
+DEBUG (9): Radio on!
+DEBUG (9): I'm node 9: I'm a MQTT client node
+DEBUG (9): Try to send a connect request to node 1 (MQTT Broker) at time 0:0:17.976562520 
+DEBUG (9): Packet passed to lower layer successfully!
+DEBUG (9): >>>Pack
+ 	 Payload length 1 
+	 Source: 9 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 1 
+DEBUG (1): Message received at time 0:0:17.978439340 
+DEBUG (1): >>>Pack 
+ 	 Payload length 1 
+	 Source: 9 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 1 
+Here are the connected nodes (seen from the MQTT broker)  : [1, 1, 1, 1, 1, 1, 1, 1] 
+Number of connected nodes: 8 
+DEBUG (9): Packet sent...and CONNACK received at time 0:0:17.978607185 
+DEBUG (9): Try to send a subscribe request to node 1 (MQTT Broker) at time 0:0:18.955078145 
+DEBUG (9): Packet passed to lower layer successfully!
+DEBUG (9): >>>Pack
+ 	 Payload length 7 
+	 Source: 9 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 2 
+		 Topic: [1 1 0] 
+		 QOS: [0 0 0] 
+DEBUG (1): Message received at time 0:0:18.965194663 
+DEBUG (1): >>>Pack 
+ 	 Payload length 7 
+	 Source: 9 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 2 
+		 Topics: [1 1 0]
+		 QOS: [0 0 0] 
+DEBUG (9): Packet sent...and SUBACK received at time 0:0:18.965362508 
+DEBUG (2): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:24.507812510 
+DEBUG (2): Packet passed to lower layer successfully!
+DEBUG (2): >>>Pack
+ 	 Payload length 6 
+	 Source: 2 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 146 
+		 Message ID: 1 
+DEBUG (1): Message received at time 0:0:24.517990062 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 2 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 146 
+		 Message ID: 1 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:0:24.517990072 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 146 
+		 Initial source: 2 
+DEBUG (2): Packet sent...and PUBACK received at time 0:0:24.518157908 
+DEBUG (3): Message received at time 0:0:24.526641755 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 146 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:24.526809601 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:0:24.526809611 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 146 
+		 Initial source: 2 
+DEBUG (4): Message received at time 0:0:24.533584474 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 146 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:24.533752320 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 5 at time 0:0:24.533752330 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 146 
+		 Initial source: 2 
+DEBUG (5): Message received at time 0:0:24.540466158 
+DEBUG (5): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 146 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:0:24.540634013 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 146 
+		 Initial source: 2 
+DEBUG (6): Message received at time 0:0:24.543243251 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 146 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 7 at time 0:0:24.543411107 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 146 
+		 Initial source: 2 
+DEBUG (7): Message received at time 0:0:24.546859573 
+DEBUG (7): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 146 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:0:24.547027429 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 146 
+		 Initial source: 2 
+DEBUG (8): Message received at time 0:0:24.553191943 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 146 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:0:24.553359799 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 146 
+		 Initial source: 2 
+DEBUG (9): Message received at time 0:0:24.556228435 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 146 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (3): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:26.503906260 
+DEBUG (3): Packet passed to lower layer successfully!
+DEBUG (3): >>>Pack
+ 	 Payload length 6 
+	 Source: 3 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 24 
+		 Message ID: 1 
+DEBUG (1): Message received at time 0:0:26.514770454 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 3 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 24 
+		 Message ID: 1 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:0:26.514770464 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 24 
+		 Initial source: 3 
+DEBUG (3): Packet sent...and PUBACK received at time 0:0:26.514938300 
+DEBUG (2): Message received at time 0:0:26.524413962 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 24 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:26.524581808 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:0:26.524581818 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 24 
+		 Initial source: 3 
+DEBUG (4): Message received at time 0:0:26.531600820 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 24 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:26.531768666 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:0:26.531768676 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 24 
+		 Initial source: 3 
+DEBUG (6): Message received at time 0:0:26.537032927 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 24 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:0:26.537200783 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 24 
+		 Initial source: 3 
+DEBUG (8): Message received at time 0:0:26.544936944 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 24 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (4): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:29.491210947 
+DEBUG (4): Packet passed to lower layer successfully!
+DEBUG (4): >>>Pack
+ 	 Payload length 6 
+	 Source: 4 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 158 
+		 Message ID: 1 
+DEBUG (1): Message received at time 0:0:29.496017438 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 4 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 158 
+		 Message ID: 1 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:0:29.496017448 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 158 
+		 Initial source: 4 
+DEBUG (4): Packet sent...and PUBACK received at time 0:0:29.496185283 
+DEBUG (2): Message received at time 0:0:29.504074041 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 158 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:29.504241887 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:0:29.504241897 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 158 
+		 Initial source: 4 
+DEBUG (3): Message received at time 0:0:29.508911059 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 158 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:29.509078905 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 5 at time 0:0:29.509078915 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 158 
+		 Initial source: 4 
+DEBUG (5): Message received at time 0:0:29.512176431 
+DEBUG (5): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 158 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:0:29.512344287 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 158 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 7 at time 0:0:29.519958388 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 158 
+		 Initial source: 4 
+DEBUG (7): Message received at time 0:0:29.522338745 
+DEBUG (7): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 158 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:0:29.522506601 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 158 
+		 Initial source: 4 
+DEBUG (8): Message received at time 0:0:29.532089064 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 158 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:0:29.532256920 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 158 
+		 Initial source: 4 
+DEBUG (9): Message received at time 0:0:29.533660720 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 158 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (5): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:30.508789072 
+DEBUG (5): Packet passed to lower layer successfully!
+DEBUG (5): >>>Pack
+ 	 Payload length 6 
+	 Source: 5 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 36 
+		 Message ID: 1 
+DEBUG (1): Message received at time 0:0:30.517883257 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 5 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 36 
+		 Message ID: 1 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:0:30.517883267 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 36 
+		 Initial source: 5 
+DEBUG (5): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:0:30.527831940 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 36 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:30.527999785 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:0:30.527999795 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 36 
+		 Initial source: 5 
+DEBUG (3): Message received at time 0:0:30.536270011 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 36 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:30.536437856 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:0:30.536437866 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 36 
+		 Initial source: 5 
+DEBUG (4): Message received at time 0:0:30.539886333 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 36 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:30.540054178 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:0:30.540054188 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 36 
+		 Initial source: 5 
+DEBUG (6): Message received at time 0:0:30.549041563 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 36 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 7 at time 0:0:30.549209418 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 36 
+		 Initial source: 5 
+DEBUG (7): Message received at time 0:0:30.555663848 
+DEBUG (7): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 36 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:0:30.555831704 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 36 
+		 Initial source: 5 
+DEBUG (8): Message received at time 0:0:30.557662748 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 36 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:0:30.557830604 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 36 
+		 Initial source: 5 
+DEBUG (9): Message received at time 0:0:30.562576060 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 36 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (6): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:32.508789072 
+DEBUG (6): Packet passed to lower layer successfully!
+DEBUG (6): >>>Pack
+ 	 Payload length 6 
+	 Source: 6 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 170 
+		 Message ID: 1 
+DEBUG (1): Message received at time 0:0:32.516021696 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 6 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 170 
+		 Message ID: 1 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:0:32.516021706 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 170 
+		 Initial source: 6 
+DEBUG (6): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:0:32.523895195 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 170 
+		 Initial source: 6 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:32.524063041 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:0:32.524063051 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 170 
+		 Initial source: 6 
+DEBUG (4): Message received at time 0:0:32.528961093 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 170 
+		 Initial source: 6 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:32.529128939 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:0:32.529128949 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 170 
+		 Initial source: 6 
+DEBUG (8): Message received at time 0:0:32.532211207 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 170 
+		 Initial source: 6 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (7): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:34.500976572 
+DEBUG (7): Packet passed to lower layer successfully!
+DEBUG (7): >>>Pack
+ 	 Payload length 6 
+	 Source: 7 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 48 
+		 Message ID: 1 
+DEBUG (1): Message received at time 0:0:34.509216270 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 7 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 48 
+		 Message ID: 1 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:0:34.509216280 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 48 
+		 Initial source: 7 
+DEBUG (7): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:0:34.514434755 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 48 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:34.514602601 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:0:34.514602611 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 48 
+		 Initial source: 7 
+DEBUG (3): Message received at time 0:0:34.522399807 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 48 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:34.522567653 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:0:34.522567663 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 48 
+		 Initial source: 7 
+DEBUG (4): Message received at time 0:0:34.525787248 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 48 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:34.525955094 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 5 at time 0:0:34.525955104 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 48 
+		 Initial source: 7 
+DEBUG (5): Message received at time 0:0:34.534408424 
+DEBUG (5): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 48 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:0:34.534576279 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 48 
+		 Initial source: 7 
+DEBUG (6): Message received at time 0:0:34.542617614 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 48 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:0:34.542785470 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 48 
+		 Initial source: 7 
+DEBUG (8): Message received at time 0:0:34.547256269 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 48 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:0:34.547424125 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 48 
+		 Initial source: 7 
+DEBUG (9): Message received at time 0:0:34.552200098 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 48 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (8): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:36.506835947 
+DEBUG (8): Packet passed to lower layer successfully!
+DEBUG (8): >>>Pack
+ 	 Payload length 6 
+	 Source: 8 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 182 
+		 Message ID: 1 
+DEBUG (1): Message received at time 0:0:36.509567254 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 8 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 182 
+		 Message ID: 1 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:0:36.509567264 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 182 
+		 Initial source: 8 
+DEBUG (8): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:0:36.518203689 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 182 
+		 Initial source: 8 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:36.518371534 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:0:36.518371544 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 182 
+		 Initial source: 8 
+DEBUG (4): Message received at time 0:0:36.522720274 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 182 
+		 Initial source: 8 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:36.522888119 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:0:36.522888129 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 182 
+		 Initial source: 8 
+DEBUG (6): Message received at time 0:0:36.533126717 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 182 
+		 Initial source: 8 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (9): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:38.505859385 
+DEBUG (9): Packet passed to lower layer successfully!
+DEBUG (9): >>>Pack
+ 	 Payload length 6 
+	 Source: 9 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 60 
+		 Message ID: 1 
+DEBUG (1): Message received at time 0:0:38.512344332 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 9 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 60 
+		 Message ID: 1 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:0:38.512344342 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 60 
+		 Initial source: 9 
+DEBUG (9): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:0:38.514999356 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 60 
+		 Initial source: 9 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:38.515167202 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:0:38.515167212 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 60 
+		 Initial source: 9 
+DEBUG (4): Message received at time 0:0:38.525054849 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 60 
+		 Initial source: 9 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:38.525222695 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:0:38.525222705 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 60 
+		 Initial source: 9 
+DEBUG (6): Message received at time 0:0:38.528045564 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 60 
+		 Initial source: 9 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:0:38.528213420 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 60 
+		 Initial source: 9 
+DEBUG (8): Message received at time 0:0:38.536666740 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 60 
+		 Initial source: 9 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (2): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:44.039062510 
+DEBUG (2): Packet passed to lower layer successfully!
+DEBUG (2): >>>Pack
+ 	 Payload length 6 
+	 Source: 2 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 62 
+		 Message ID: 2 
+DEBUG (1): Message received at time 0:0:44.044677711 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 2 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 62 
+		 Message ID: 2 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:0:44.044677721 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 62 
+		 Initial source: 2 
+DEBUG (2): Packet sent...and PUBACK received at time 0:0:44.044845557 
+DEBUG (3): Message received at time 0:0:44.051834051 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 62 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:44.052001897 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:0:44.052001907 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 62 
+		 Initial source: 2 
+DEBUG (4): Message received at time 0:0:44.059295566 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 62 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:44.059463411 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 5 at time 0:0:44.059463421 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 62 
+		 Initial source: 2 
+DEBUG (5): Message received at time 0:0:44.068099846 
+DEBUG (5): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 62 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:0:44.068267701 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 62 
+		 Initial source: 2 
+DEBUG (6): Message received at time 0:0:44.072387550 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 62 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 7 at time 0:0:44.072555406 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 62 
+		 Initial source: 2 
+DEBUG (7): Message received at time 0:0:44.075164644 
+DEBUG (7): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 62 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:0:44.075332499 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 62 
+		 Initial source: 2 
+DEBUG (8): Message received at time 0:0:44.084548754 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 62 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:0:44.084716610 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 62 
+		 Initial source: 2 
+DEBUG (9): Message received at time 0:0:44.089492583 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 62 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (3): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:46.035156260 
+DEBUG (3): Packet passed to lower layer successfully!
+DEBUG (3): >>>Pack
+ 	 Payload length 6 
+	 Source: 3 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 168 
+		 Message ID: 2 
+DEBUG (1): Message received at time 0:0:46.045608469 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 3 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 168 
+		 Message ID: 2 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:0:46.045608479 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 168 
+		 Initial source: 3 
+DEBUG (3): Packet sent...and PUBACK received at time 0:0:46.045776315 
+DEBUG (2): Message received at time 0:0:46.054168610 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 168 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:46.054336455 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:0:46.054336465 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 168 
+		 Initial source: 3 
+DEBUG (4): Message received at time 0:0:46.059814339 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 168 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:46.059982184 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:0:46.059982194 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 168 
+		 Initial source: 3 
+DEBUG (6): Message received at time 0:0:46.065933087 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 168 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:0:46.066100943 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 168 
+		 Initial source: 3 
+DEBUG (8): Message received at time 0:0:46.069549409 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 168 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (4): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:49.022460947 
+DEBUG (4): Packet passed to lower layer successfully!
+DEBUG (4): >>>Pack
+ 	 Payload length 6 
+	 Source: 4 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 18 
+		 Message ID: 2 
+DEBUG (1): Message received at time 0:0:49.031860306 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 4 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 18 
+		 Message ID: 2 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:0:49.031860316 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 18 
+		 Initial source: 4 
+DEBUG (4): Packet sent...and PUBACK received at time 0:0:49.032028152 
+DEBUG (2): Message received at time 0:0:49.042434595 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 18 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:49.042602441 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:0:49.042602451 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 18 
+		 Initial source: 4 
+DEBUG (3): Message received at time 0:0:49.052139139 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 18 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:49.052306984 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 5 at time 0:0:49.052306994 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 18 
+		 Initial source: 4 
+DEBUG (5): Message received at time 0:0:49.058593579 
+DEBUG (5): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 18 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:0:49.058761434 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 18 
+		 Initial source: 4 
+DEBUG (6): Message received at time 0:0:49.067413117 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 18 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 7 at time 0:0:49.067580973 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 18 
+		 Initial source: 4 
+DEBUG (7): Message received at time 0:0:49.073699712 
+DEBUG (7): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 18 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:0:49.073867567 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 18 
+		 Initial source: 4 
+DEBUG (8): Message received at time 0:0:49.080535619 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 18 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:0:49.080703475 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 18 
+		 Initial source: 4 
+DEBUG (9): Message received at time 0:0:49.083617887 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 18 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (5): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:50.040039072 
+DEBUG (5): Packet passed to lower layer successfully!
+DEBUG (5): >>>Pack
+ 	 Payload length 6 
+	 Source: 5 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 124 
+		 Message ID: 2 
+DEBUG (1): Message received at time 0:0:50.044555647 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 5 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 124 
+		 Message ID: 2 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:0:50.044555657 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 124 
+		 Initial source: 5 
+DEBUG (5): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:0:50.048324556 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 124 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:50.048492402 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:0:50.048492412 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 124 
+		 Initial source: 5 
+DEBUG (3): Message received at time 0:0:50.050689665 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 124 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:50.050857510 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:0:50.050857520 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 124 
+		 Initial source: 5 
+DEBUG (4): Message received at time 0:0:50.059646532 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 124 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:50.059814377 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:0:50.059814387 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 124 
+		 Initial source: 5 
+DEBUG (6): Message received at time 0:0:50.062545695 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 124 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 7 at time 0:0:50.062713550 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 124 
+		 Initial source: 5 
+DEBUG (7): Message received at time 0:0:50.069625741 
+DEBUG (7): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 124 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:0:50.069793597 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 124 
+		 Initial source: 5 
+DEBUG (8): Message received at time 0:0:50.079437095 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 124 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:0:50.079604951 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 124 
+		 Initial source: 5 
+DEBUG (9): Message received at time 0:0:50.089416295 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 124 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (6): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:52.040039072 
+DEBUG (6): Packet passed to lower layer successfully!
+DEBUG (6): >>>Pack
+ 	 Payload length 6 
+	 Source: 6 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 230 
+		 Message ID: 2 
+DEBUG (1): Message received at time 0:0:52.042526240 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 6 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 230 
+		 Message ID: 2 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:0:52.042526250 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 230 
+		 Initial source: 6 
+DEBUG (6): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:0:52.052123972 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 230 
+		 Initial source: 6 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:52.052291818 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:0:52.052291828 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 230 
+		 Initial source: 6 
+DEBUG (4): Message received at time 0:0:52.060653596 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 230 
+		 Initial source: 6 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:52.060821441 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:0:52.060821451 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 230 
+		 Initial source: 6 
+DEBUG (8): Message received at time 0:0:52.069961413 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 230 
+		 Initial source: 6 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (7): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:54.032226572 
+DEBUG (7): Packet passed to lower layer successfully!
+DEBUG (7): >>>Pack
+ 	 Payload length 6 
+	 Source: 7 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 90 
+		 Message ID: 2 
+DEBUG (1): Message received at time 0:0:54.040786703 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 7 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 90 
+		 Message ID: 2 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:0:54.040786713 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (7): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (1): Packet sent...but FORWACK was not received at time 0:0:54.048644943 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:0:54.048644953 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (3): Message received at time 0:0:54.051589882 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:54.051757728 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:0:54.051757738 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (4): Message received at time 0:0:54.061889515 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:54.062057361 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 5 at time 0:0:54.062057371 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (5): Message received at time 0:0:54.067748866 
+DEBUG (5): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:0:54.067916721 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (6): Message received at time 0:0:54.074081236 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:0:54.074249092 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (8): Message received at time 0:0:54.081313870 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:0:54.081481726 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (2): Message received at time 0:0:54.083968894 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:54.084136739 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:0:54.084136749 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (9): Message received at time 0:0:54.088515996 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 90 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (8): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:56.038085947 
+DEBUG (8): Packet passed to lower layer successfully!
+DEBUG (8): >>>Pack
+ 	 Payload length 6 
+	 Source: 8 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 196 
+		 Message ID: 2 
+DEBUG (1): Message received at time 0:0:56.047271684 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 8 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 196 
+		 Message ID: 2 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:0:56.047271694 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 196 
+		 Initial source: 8 
+DEBUG (8): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:0:56.057556058 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 196 
+		 Initial source: 8 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:56.057723904 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:0:56.057723914 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 196 
+		 Initial source: 8 
+DEBUG (4): Message received at time 0:0:56.065307488 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 196 
+		 Initial source: 8 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:56.065475334 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:0:56.065475344 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 196 
+		 Initial source: 8 
+DEBUG (6): Message received at time 0:0:56.067794666 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 196 
+		 Initial source: 8 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (9): Try to send a publish request to node 1 (MQTT Broker) at time 0:0:58.037109385 
+DEBUG (9): Packet passed to lower layer successfully!
+DEBUG (9): >>>Pack
+ 	 Payload length 6 
+	 Source: 9 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 46 
+		 Message ID: 2 
+DEBUG (1): Message received at time 0:0:58.047286937 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 9 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 46 
+		 Message ID: 2 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:0:58.047286947 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 46 
+		 Initial source: 9 
+DEBUG (9): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:0:58.053665084 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 46 
+		 Initial source: 9 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:58.053832930 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:0:58.053832940 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 46 
+		 Initial source: 9 
+DEBUG (4): Message received at time 0:0:58.062713503 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 46 
+		 Initial source: 9 
+DEBUG (1): Packet sent...and FORWACK received at time 0:0:58.062881349 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:0:58.062881359 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 46 
+		 Initial source: 9 
+DEBUG (6): Message received at time 0:0:58.065261716 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 46 
+		 Initial source: 9 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:0:58.065429572 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 46 
+		 Initial source: 9 
+DEBUG (8): Message received at time 0:0:58.068221914 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 46 
+		 Initial source: 9 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (2): Try to send a publish request to node 1 (MQTT Broker) at time 0:1:3.570312510 
+DEBUG (2): Packet passed to lower layer successfully!
+DEBUG (2): >>>Pack
+ 	 Payload length 6 
+	 Source: 2 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 130 
+		 Message ID: 3 
+DEBUG (1): Message received at time 0:1:3.574844343 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 2 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 130 
+		 Message ID: 3 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:1:3.574844353 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 130 
+		 Initial source: 2 
+DEBUG (2): Packet sent...and PUBACK received at time 0:1:3.575012189 
+DEBUG (3): Message received at time 0:1:3.584838802 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 130 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:3.585006648 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:1:3.585006658 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 130 
+		 Initial source: 2 
+DEBUG (4): Message received at time 0:1:3.595443608 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 130 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:3.595611454 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 5 at time 0:1:3.595611464 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 130 
+		 Initial source: 2 
+DEBUG (5): Message received at time 0:1:3.601608133 
+DEBUG (5): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 130 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:1:3.601775989 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 130 
+		 Initial source: 2 
+DEBUG (6): Message received at time 0:1:3.609603702 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 130 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 7 at time 0:1:3.609771558 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 130 
+		 Initial source: 2 
+DEBUG (7): Message received at time 0:1:3.614883222 
+DEBUG (7): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 130 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:1:3.615051078 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 130 
+		 Initial source: 2 
+DEBUG (8): Message received at time 0:1:3.618209629 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 130 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:1:3.618377485 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 130 
+		 Initial source: 2 
+DEBUG (9): Message received at time 0:1:3.625869506 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 130 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (3): Try to send a publish request to node 1 (MQTT Broker) at time 0:1:5.566406260 
+DEBUG (3): Packet passed to lower layer successfully!
+DEBUG (3): >>>Pack
+ 	 Payload length 6 
+	 Source: 3 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 6 
+		 Message ID: 3 
+DEBUG (1): Message received at time 0:1:5.575714067 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 3 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 6 
+		 Message ID: 3 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:1:5.575714077 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 6 
+		 Initial source: 3 
+DEBUG (3): Packet sent...and PUBACK received at time 0:1:5.575881912 
+DEBUG (2): Message received at time 0:1:5.580520567 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 6 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:5.580688413 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:1:5.580688423 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 6 
+		 Initial source: 3 
+DEBUG (4): Message received at time 0:1:5.588912862 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 6 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:5.589080708 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:1:5.589080718 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 6 
+		 Initial source: 3 
+DEBUG (6): Message received at time 0:1:5.596511705 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 6 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:1:5.596679560 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 6 
+		 Initial source: 3 
+DEBUG (8): Message received at time 0:1:5.598449570 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 6 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (4): Try to send a publish request to node 1 (MQTT Broker) at time 0:1:8.553710947 
+DEBUG (4): Packet passed to lower layer successfully!
+DEBUG (4): >>>Pack
+ 	 Payload length 6 
+	 Source: 4 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 128 
+		 Message ID: 3 
+DEBUG (1): Message received at time 0:1:8.562683063 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 4 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 128 
+		 Message ID: 3 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:1:8.562683073 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (4): Packet sent...and PUBACK received at time 0:1:8.562850908 
+DEBUG (1): Packet sent...but FORWACK was not received at time 0:1:8.569061209 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:1:8.569061219 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (3): Message received at time 0:1:8.575927634 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:8.576095480 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 5 at time 0:1:8.576095490 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (5): Message received at time 0:1:8.586471406 
+DEBUG (5): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:1:8.586639262 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (6): Message received at time 0:1:8.591171096 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 7 at time 0:1:8.591338951 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (7): Message received at time 0:1:8.598174849 
+DEBUG (7): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:1:8.598342705 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (8): Message received at time 0:1:8.600616251 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:1:8.600784107 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (2): Message received at time 0:1:8.608886476 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:8.609054322 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:1:8.609054332 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (9): Message received at time 0:1:8.616882045 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 128 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (5): Try to send a publish request to node 1 (MQTT Broker) at time 0:1:9.571289072 
+DEBUG (5): Packet passed to lower layer successfully!
+DEBUG (5): >>>Pack
+ 	 Payload length 6 
+	 Source: 5 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 4 
+		 Message ID: 3 
+DEBUG (1): Message received at time 0:1:9.577651950 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 5 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 4 
+		 Message ID: 3 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:1:9.577651960 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 4 
+		 Initial source: 5 
+DEBUG (5): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:1:9.581664998 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 4 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:9.581832844 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:1:9.581832854 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 4 
+		 Initial source: 5 
+DEBUG (3): Message received at time 0:1:9.588851856 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 4 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:9.589019701 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:1:9.589019711 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 4 
+		 Initial source: 5 
+DEBUG (4): Message received at time 0:1:9.597747688 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 4 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:9.597915534 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:1:9.597915544 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 4 
+		 Initial source: 5 
+DEBUG (6): Message received at time 0:1:9.601013060 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 4 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 7 at time 0:1:9.601180915 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 4 
+		 Initial source: 5 
+DEBUG (7): Message received at time 0:1:9.606002665 
+DEBUG (7): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 4 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:1:9.606170520 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 4 
+		 Initial source: 5 
+DEBUG (8): Message received at time 0:1:9.616088675 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 4 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:1:9.616256531 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 4 
+		 Initial source: 5 
+DEBUG (9): Message received at time 0:1:9.621658111 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 4 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (6): Try to send a publish request to node 1 (MQTT Broker) at time 0:1:11.571289072 
+DEBUG (6): Packet passed to lower layer successfully!
+DEBUG (6): >>>Pack
+ 	 Payload length 6 
+	 Source: 6 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 136 
+		 Message ID: 3 
+DEBUG (1): Message received at time 0:1:11.575180041 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 6 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 136 
+		 Message ID: 3 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:1:11.575180051 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 136 
+		 Initial source: 6 
+DEBUG (6): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:1:11.577712995 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 136 
+		 Initial source: 6 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:11.577880840 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:1:11.577880850 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 136 
+		 Initial source: 6 
+DEBUG (4): Message received at time 0:1:11.583099326 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 136 
+		 Initial source: 6 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:11.583267172 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:1:11.583267182 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 136 
+		 Initial source: 6 
+DEBUG (8): Message received at time 0:1:11.589507990 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 136 
+		 Initial source: 6 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (7): Try to send a publish request to node 1 (MQTT Broker) at time 0:1:13.563476572 
+DEBUG (7): Packet passed to lower layer successfully!
+DEBUG (7): >>>Pack
+ 	 Payload length 6 
+	 Source: 7 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 12 
+		 Message ID: 3 
+DEBUG (1): Message received at time 0:1:13.573287916 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 7 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 12 
+		 Message ID: 3 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:1:13.573287926 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (7): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:1:13.579101491 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:13.579269337 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:1:13.579269347 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (3): Message received at time 0:1:13.590255611 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:13.590423456 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:1:13.590423466 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (4): Message received at time 0:1:13.600112741 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (1): Packet sent...but FORWACK was not received at time 0:1:13.600280586 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 5 at time 0:1:13.600280596 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (5): Message received at time 0:1:13.606673992 
+DEBUG (5): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:1:13.606841847 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (6): Message received at time 0:1:13.615035769 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:1:13.615203625 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (8): Message received at time 0:1:13.621627538 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:1:13.621795393 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (4): Message received at time 0:1:13.628127754 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:13.628295600 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:1:13.628295610 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (9): Message received at time 0:1:13.632857961 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 12 
+		 Initial source: 7 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (8): Try to send a publish request to node 1 (MQTT Broker) at time 0:1:15.569335947 
+DEBUG (8): Packet passed to lower layer successfully!
+DEBUG (8): >>>Pack
+ 	 Payload length 6 
+	 Source: 8 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 134 
+		 Message ID: 3 
+DEBUG (1): Message received at time 0:1:15.570693971 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 8 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 134 
+		 Message ID: 3 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:1:15.570693981 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 134 
+		 Initial source: 8 
+DEBUG (8): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:1:15.573593134 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 134 
+		 Initial source: 8 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:15.573760980 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:1:15.573760990 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 134 
+		 Initial source: 8 
+DEBUG (4): Message received at time 0:1:15.578689550 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 134 
+		 Initial source: 8 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:15.578857396 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:1:15.578857406 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 134 
+		 Initial source: 8 
+DEBUG (6): Message received at time 0:1:15.587325984 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 134 
+		 Initial source: 8 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (9): Try to send a publish request to node 1 (MQTT Broker) at time 0:1:17.568359385 
+DEBUG (9): Packet passed to lower layer successfully!
+DEBUG (9): >>>Pack
+ 	 Payload length 6 
+	 Source: 9 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 10 
+		 Message ID: 3 
+DEBUG (1): Message received at time 0:1:17.574508641 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 9 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 10 
+		 Message ID: 3 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:1:17.574508651 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 10 
+		 Initial source: 9 
+DEBUG (9): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:1:17.581329290 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 10 
+		 Initial source: 9 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:17.581497135 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:1:17.581497145 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 10 
+		 Initial source: 9 
+DEBUG (4): Message received at time 0:1:17.591461076 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 10 
+		 Initial source: 9 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:17.591628922 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:1:17.591628932 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 10 
+		 Initial source: 9 
+DEBUG (6): Message received at time 0:1:17.601745450 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 10 
+		 Initial source: 9 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:1:17.601913306 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 10 
+		 Initial source: 9 
+DEBUG (8): Message received at time 0:1:17.607955751 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 10 
+		 Initial source: 9 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (2): Try to send a publish request to node 1 (MQTT Broker) at time 0:1:23.101562510 
+DEBUG (2): Packet passed to lower layer successfully!
+DEBUG (2): >>>Pack
+ 	 Payload length 6 
+	 Source: 2 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 246 
+		 Message ID: 4 
+DEBUG (1): Message received at time 0:1:23.108764616 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 2 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 246 
+		 Message ID: 4 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:1:23.108764626 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 246 
+		 Initial source: 2 
+DEBUG (2): Packet sent...and PUBACK received at time 0:1:23.108932462 
+DEBUG (3): Message received at time 0:1:23.118072433 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 246 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:23.118240279 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:1:23.118240289 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 246 
+		 Initial source: 2 
+DEBUG (4): Message received at time 0:1:23.127349733 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 246 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:23.127517578 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 5 at time 0:1:23.127517588 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 246 
+		 Initial source: 2 
+DEBUG (5): Message received at time 0:1:23.135467371 
+DEBUG (5): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 246 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:1:23.135635227 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 246 
+		 Initial source: 2 
+DEBUG (6): Message received at time 0:1:23.137191614 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 246 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 7 at time 0:1:23.137359470 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 246 
+		 Initial source: 2 
+DEBUG (7): Message received at time 0:1:23.140075518 
+DEBUG (7): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 246 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:1:23.140243374 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 246 
+		 Initial source: 2 
+DEBUG (8): Message received at time 0:1:23.148132122 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 246 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:1:23.148299978 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 246 
+		 Initial source: 2 
+DEBUG (9): Message received at time 0:1:23.153167503 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 246 
+		 Initial source: 2 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (3): Try to send a publish request to node 1 (MQTT Broker) at time 0:1:25.097656260 
+DEBUG (3): Packet passed to lower layer successfully!
+DEBUG (3): >>>Pack
+ 	 Payload length 6 
+	 Source: 3 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 154 
+		 Message ID: 4 
+DEBUG (1): Message received at time 0:1:25.106155355 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 3 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 154 
+		 Message ID: 4 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:1:25.106155365 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 154 
+		 Initial source: 3 
+DEBUG (3): Packet sent...and PUBACK received at time 0:1:25.106323201 
+DEBUG (2): Message received at time 0:1:25.111831602 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 154 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:25.111999448 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:1:25.111999458 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 154 
+		 Initial source: 3 
+DEBUG (4): Message received at time 0:1:25.120483295 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 154 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:25.120651140 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:1:25.120651150 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 154 
+		 Initial source: 3 
+DEBUG (6): Message received at time 0:1:25.124236945 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 154 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:1:25.124404801 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 154 
+		 Initial source: 3 
+DEBUG (8): Message received at time 0:1:25.129012928 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 154 
+		 Initial source: 3 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (4): Try to send a publish request to node 1 (MQTT Broker) at time 0:1:28.084960947 
+DEBUG (4): Packet passed to lower layer successfully!
+DEBUG (4): >>>Pack
+ 	 Payload length 6 
+	 Source: 4 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 72 
+		 Message ID: 4 
+DEBUG (1): Message received at time 0:1:28.090087870 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 4 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 72 
+		 Message ID: 4 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:1:28.090087880 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 72 
+		 Initial source: 4 
+DEBUG (4): Packet sent...and PUBACK received at time 0:1:28.090255716 
+DEBUG (2): Message received at time 0:1:28.098388613 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 72 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:28.098556459 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:1:28.098556469 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 72 
+		 Initial source: 4 
+DEBUG (3): Message received at time 0:1:28.102874681 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 1 
+		 Value: 72 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:28.103042527 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 5 at time 0:1:28.103042537 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 72 
+		 Initial source: 4 
+DEBUG (5): Message received at time 0:1:28.111343269 
+DEBUG (5): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 5 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 72 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:1:28.111511125 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 72 
+		 Initial source: 4 
+DEBUG (6): Message received at time 0:1:28.113311652 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 72 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 7 at time 0:1:28.113479507 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 72 
+		 Initial source: 4 
+DEBUG (7): Message received at time 0:1:28.114684945 
+DEBUG (7): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 72 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:1:28.114852800 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 72 
+		 Initial source: 4 
+DEBUG (8): Message received at time 0:1:28.118911615 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 72 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:1:28.119079470 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 72 
+		 Initial source: 4 
+DEBUG (9): Message received at time 0:1:28.128951849 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 72 
+		 Initial source: 4 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (5): Try to send a publish request to node 1 (MQTT Broker) at time 0:1:29.102539072 
+DEBUG (5): Packet passed to lower layer successfully!
+DEBUG (5): >>>Pack
+ 	 Payload length 6 
+	 Source: 5 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 236 
+		 Message ID: 4 
+DEBUG (1): Message received at time 0:1:29.109054537 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 5 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 236 
+		 Message ID: 4 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:1:29.109054547 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 236 
+		 Initial source: 5 
+DEBUG (5): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:1:29.111038178 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 236 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:29.111206024 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 3 at time 0:1:29.111206034 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 236 
+		 Initial source: 5 
+DEBUG (3): Message received at time 0:1:29.116683907 
+DEBUG (3): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 3 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 236 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:29.116851753 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:1:29.116851763 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 236 
+		 Initial source: 5 
+DEBUG (4): Message received at time 0:1:29.121093681 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 1 
+		 Value: 236 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:29.121261527 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 6 at time 0:1:29.121261537 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 236 
+		 Initial source: 5 
+DEBUG (6): Message received at time 0:1:29.130905035 
+DEBUG (6): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 6 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 236 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 7 at time 0:1:29.131072891 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 236 
+		 Initial source: 5 
+DEBUG (7): Message received at time 0:1:29.141204668 
+DEBUG (7): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 7 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 236 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:1:29.141372524 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 236 
+		 Initial source: 5 
+DEBUG (8): Message received at time 0:1:29.145065129 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 236 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 9 at time 0:1:29.145232985 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 236 
+		 Initial source: 5 
+DEBUG (9): Message received at time 0:1:29.149963182 
+DEBUG (9): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 9 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 1 
+		 QOS: 0 
+		 Value: 236 
+		 Initial source: 5 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (6): Try to send a publish request to node 1 (MQTT Broker) at time 0:1:31.102539072 
+DEBUG (6): Packet passed to lower layer successfully!
+DEBUG (6): >>>Pack
+ 	 Payload length 6 
+	 Source: 6 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 154 
+		 Message ID: 4 
+DEBUG (1): Message received at time 0:1:31.109970059 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 6 
+	 Destination: 1 
+	 AM Type: 6 
+		 Message type: 3 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 154 
+		 Message ID: 4 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 2 at time 0:1:31.109970069 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 154 
+		 Initial source: 6 
+DEBUG (6): Packet sent...The QoS was low so no acknowledgment required for this publication
+DEBUG (2): Message received at time 0:1:31.112350426 
+DEBUG (2): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 2 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 154 
+		 Initial source: 6 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:31.112518272 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 4 at time 0:1:31.112518282 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 154 
+		 Initial source: 6 
+DEBUG (4): Message received at time 0:1:31.118789608 
+DEBUG (4): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 4 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 1 
+		 Value: 154 
+		 Initial source: 6 
+DEBUG (1): Packet sent...and FORWACK received at time 0:1:31.118957453 
+DEBUG (1): The MQTT broker tries to forward the publish request to node 8 at time 0:1:31.118957463 
+DEBUG (1): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 154 
+		 Initial source: 6 
+DEBUG (8): Message received at time 0:1:31.127853285 
+DEBUG (8): >>>Pack 
+ 	 Payload length 6 
+	 Source: 1 
+	 Destination: 8 
+	 AM Type: 6 
+		 Message type: 4 
+		 Topic: 3 
+		 QOS: 0 
+		 Value: 154 
+		 Initial source: 6 
+DEBUG (1): Packet sent...and no acknowledgement required 
+		 forwarding: 0 
+DEBUG (7): Try to send a publish request to node 1 (MQTT Broker) at time 0:1:33.094726572 
+DEBUG (7): Packet passed to lower layer successfully!
+DEBUG (7): >>>Pack
+ 	 Payload length 6 
+	 Source: 7 
+ 	 Destination: 1 
+ 	 AM Type: 6 
+ 		 Message type: 3 
+		 Topic: 2 
+		 QOS: 0 
+		 Value: 62 
+		 Message ID: 4 
+DEBUG (7): Packet sent...The QoS was low so no acknowledgment required for this publication
